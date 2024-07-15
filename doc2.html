@@ -1,0 +1,120 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  
+    <head>
+      
+        <title>Graphic Era Hospital</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <style>
+          body {
+              
+              background-size:cover;
+              position:sticky;
+              height: 100vh;
+          }
+          .navbar{
+              background-color: rgba(200, 171, 120, 0.422);
+              
+              
+          } 
+          .navbar-brand {
+              font-size: 40px; /* Adjust the font size to make it bigger */
+              font-family: 'Times New Roman', Times, serif;
+              text-align: left;
+              color: black;
+          } 
+          
+          .nav-link{
+            font-size: 25px;
+            color:black;
+          }
+
+          .table{
+            background-color:aliceblue;
+          }
+
+          .card{
+            background-color:rgba(255, 228, 196, 0.685);
+            display: flex; 
+            justify-content: 
+            flex-end;padding:10px
+          }
+          
+          
+  </style>
+
+
+    </head>
+
+    
+
+    <body style="background-image: url( 'https://marketplace.canva.com/EAFZcmTpKas/1/0/1600w/canva-video-intro-portada-fondo-background-simple-rosa-dorado-U93tpA4NMDA.jpg' );">
+      
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#" >Graphic Era Hospital</a>               
+              </div>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li>
+                        <h4 style="color:brown"> Dr.Mashoor Gulati </h4>
+                    </li>
+                                     
+                </ul>  
+            </div>
+          </nav>
+           
+          <div class="row justify-content-end">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Current appointment= {{ curr }}</h5>
+              <h5 class="card-title">Total appointment= {{ tot }}</h5>           
+            </div>
+          </div>
+          </div>
+         
+          <div class="container">
+            <br>
+            <h1 class="text-center">Patient List</h1>
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Appointment No.</th>
+                        <th>Name</th>                       
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for patient in patients %}
+                    <tr>
+                        <td>{{ patient.app_number }}</td>
+                        <td>{{ patient.name }}</td>
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex justify-content-center">
+            <form method="post" action="{% url 'doc2inc' doctor_id=2 %}">
+                {% csrf_token %}
+                <button  type="submit" class="btn btn-success btn-lg" > Call Next Patient </button>
+            </form>
+            <form method="post" action="{% url 'doc2Reset' %}">
+                {% csrf_token %}
+                <button  type="submit" class="btn btn-success btn-lg" > Reset Current Patient </button>
+            </form>
+            
+        </div>
+
+
+        <!-- Bootstrap JS, Popper.js, and jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+         
+    </body>
+</html>

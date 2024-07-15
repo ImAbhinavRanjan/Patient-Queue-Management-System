@@ -1,0 +1,97 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  
+    <head>
+      
+        <title>Graphic Era Hospital</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <style>
+          body {
+              
+              background-size:cover;
+              position:sticky;
+              height: 100vh;
+          }
+          .navbar{
+              background-color: rgba(255, 235, 205, 0.838);
+              
+              
+          } 
+          .navbar-brand {
+              font-size: 40px; /* Adjust the font size to make it bigger */
+              font-family: 'Times New Roman', Times, serif;
+              text-align: left;
+              color: black;
+          } 
+          .card{
+              background-color:rgba(255, 235, 205, 0.838);
+              padding: 30px; 
+              
+          }
+          .nav-link{
+            font-size: 25px;
+            color:black;
+          }
+          
+          
+  </style>
+
+
+    </head>
+
+    
+
+    <body style="background-image: url( 'https://wallpapers.com/images/hd/doctor-background-3f5gb4fnigf6ueer.jpg' );">
+      
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'logged' %}" >Graphic Era Hospital</a>               
+              </div>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li>
+                        <h4 style="color:brown">Welcome, {{user.username}} </h4>
+                    </li>
+                  
+                    <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'logout' %}">logout</a>
+                  </li>
+                </ul>  
+            </div>
+          </nav>
+
+          <div class="container" style="display: flex; justify-content: flex-end;padding:10px ;">     
+          <div class="card" style="width: 18rem;">
+            <img src="https://thumbs.dreamstime.com/b/indian-doctor-mature-male-medical-standing-inside-hospital-handsome-model-portrait-46325210.jpg" class="card-img-top" >
+            <div class="card-body">
+              <h5 class="card-title">Dr Abhinav Ranjan</h5>
+              <p class="card-text">A seasoned Cardiologist, provides expert cardiac care with empathy and precision, 10 years of experience.</p>
+              <p> Current appointment: <span style="color: brown;">{{ x_curr }}</span> </p>
+              <p> Total appointment: <span style="color: brown;">{{ x_tot }}</span> </p>
+              <a href="{% url 'book_appointment' 1 %}" class="btn btn-primary">Book appointment</a>
+            </div>
+          </div>
+          
+
+          <div class="card" style="width: 18rem;">
+            <img src="https://media.newstracklive.com/uploads/entertainment/television-news/Aug/18/big_thumb/Not-Kapil-Sharmas-show-Sunil-Grover-to-reprise-Mashoor-Gulati-in-this-reality-series_0_5996c384dc099.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Dr Mashoor Gulati</h5>
+              <p class="card-text">A skilled ENT specialist, offers personalized care for ear, nose, and throat conditions, 7 years of experience</p>
+              <p> Current appointment: <span style="color: brown;">{{ y_curr }}</span> </p>
+              <p> Total appointment: <span style="color: brown;">{{ y_tot }}</span> </p>
+              <a href="{% url 'book_appointment' 2 %}" class="btn btn-primary">Book appointment</a>
+            </div>
+          </div>
+          </div>
+
+
+          <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+</html>
